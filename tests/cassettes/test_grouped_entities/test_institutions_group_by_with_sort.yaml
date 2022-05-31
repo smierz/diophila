@@ -1,0 +1,57 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.27.1
+    method: GET
+    uri: https://api.openalex.org/institutions?group_by=type&sort=key%3Aasc%2Ccount%3Adesc
+  response:
+    body:
+      string: !!binary |
+        H4sIAEvdlWIA/3WR3Y6DIBBG7/cx5poL1KYVX2XTEKpTJZWfIHZjjO++NJWIiV4xk8N3AjMzKPQC
+        qhlqM2oPFSPQPLjDwRo9IPdSIVcDVBklYEWLoQoFOv5tckoXAuH62Ptw6/dOoHVmtPwxhW6GF4Yz
+        uJUVegLy6XkjB9uLiWuhcAfXJ+TswsqFxDA2Yy28NPo4nuJVkLEySwTaaOvMU/pjQYqjoLix6ybo
+        UPS+q4XDY8OOR0XObvmmeIpa9tKfjCChcQ0FTdLGd+iOoxGtuTJLfz7qlzZ/J4Pb4Jq9FvSyZVvz
+        RqcV6pOx7Xg00CIxCFd38n0ysw3GrZd5sdyXn391i4jgkgIAAA==
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept, Authorization, Cache-Control
+      Access-Control-Allow-Methods:
+      - POST, GET, OPTIONS, PUT, DELETE, PATCH
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Expose-Headers:
+      - Authorization, Cache-Control
+      Cache-Control:
+      - max-age=0, no-cache
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '265'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 31 May 2022 09:18:03 GMT
+      Server:
+      - gunicorn
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 vegur
+      X-Api-Pool:
+      - common
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -1,0 +1,62 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.27.1
+    method: GET
+    uri: https://api.openalex.org/works?group_by=type&sort=key%3Aasc%2Ccount%3Adesc
+  response:
+    body:
+      string: !!binary |
+        H4sIAFLdlWIA/4VVy46jMBC872f4HCSDX3h+ZTVCDvQmbAJGxswoivLv69FicIhNTjy6unB3VTd3
+        1IFV6OOOaj31Fn0U5QE1x8rAOOh+hMq2HVTdiD7yvKQHNKgTuHt3A6b6/1Bg/DgglzBdrcP9/jyg
+        k9HTUB1v7umOLuCu6K+eTK+umTK2ra+ADj/vq6Ydh6u6Vb3qIAqaT5XnggpOOXkcPOHUX3r93ceJ
+        1uBMIHJcMEzkmn/U+pLVZzVYMHGSDcIfRchSEiFWpsHoGqBp+9O4X14cOPOWuOCc0ZXWJY9grLKt
+        TlS5QcxEnBY0F/i50nSFayItMctZ0KJBjxaarNa9BQeI17TFzGRECkZoWI6yaoQEyxr0NiSFwCSQ
+        28AfMNDXkLnPmFuc5hXkRcM/8pcrnXea6+D0xowe4nXiBeMyPNigTaKsJealEZLjfM3V9pwynw/N
+        mUxIFnqu070+GTWc49lh2DPkzl6BK0ar+kaZJk4QRL2gbs7zQM8BwGQGvlr4TjjjCbDoKklc1rRL
+        XzCeC7uK2MpV687trKRTw/DCUDCCo5P8doKDzjJJ2Yu1dk0VDJ3kgm/dlLmxbiFxhi3EW5xLTDfr
+        bVApZ4ZhT0BdO14n5Etfp+7NiCwY73NZBC53Rkxp4kM+r5RiU8JeJ54Byw8sJ/HdvEcVxfnGMLpt
+        7Ah1ei1vEDOLJMULyZ44T+uQcLZJtkbVO1t9ifuusMfn49c/ssUoYO4HAAA=
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept, Authorization, Cache-Control
+      Access-Control-Allow-Methods:
+      - POST, GET, OPTIONS, PUT, DELETE, PATCH
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Expose-Headers:
+      - Authorization, Cache-Control
+      Cache-Control:
+      - max-age=0, no-cache
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '557'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 31 May 2022 09:18:10 GMT
+      Server:
+      - gunicorn
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 vegur
+      X-Api-Pool:
+      - common
+    status:
+      code: 200
+      message: OK
+version: 1

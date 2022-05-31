@@ -1,0 +1,71 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.27.1
+    method: GET
+    uri: https://api.openalex.org/institutions/random
+  response:
+    body:
+      string: !!binary |
+        H4sIAF3dlWIA/61X247bNhB971cYAvK21vJ+MVAU3TQo+lAkAdqXpoGhlWiZiCwJuqyjLvzvGSre
+        tSRzoxXQF0oczqEOzwyH1GNgk2AT7JumrDe3t0Vp8igzX8OiSm//wIxqKgSRwU1QFdXAD3q9C6Ic
+        M15yBB6Jrcss6rZ5dDDg+nduH0xV26ZbFbvVnYn3UQVecdHmTdVt4yJxXr/9A7amK927Sdo4amyR
+        g2lfHEwZpWbbVtn5u/DZ4/EYtjDv+r6fLkz+A1d7ePbL2yx7MjT79nCfRzYbDg05bqO4KvLuUAeb
+        T5+nQ1ljqhzIPJjz8LGovtTbnn2wEYrDSmxjku1992yUhMLHEwA8Bk9C/k/aworAY4hJqz5w7hEy
+        RhhCoQDz0X6xpUlsNJjQ5OGzuZ/Z9W4v8XlDULGD5jlGbjyJmuEcTvkn82WOj1JpIKmDExAyhVs4
+        qNIB7u7fFiGjzxPCmJMV9IPRbU+ccMQ5dWurTOpifo6QLz/ONuj+mqWmgsXdBBkEp2mdD8WhQIxQ
+        DcYiT8/WNQkJJYoAM5ufgwkkMsdxnKmPQeTkB8KCxH0rXcu4a6nuLXrVd+RguG8p7t+j1QVBksH7
+        rh8gqvdl/QC6tOQ8h1uiW92Hyu66Oi2y1Vg+k1/vp7G+LlTvs6yOCzsGn2D9UV0XsY1cttq8drI5
+        Kc553WtbuzTujNPh02Pw/YUgQiZpT66Tnkh6uhlA8ATC0TUGU0ZGIDTdXh6QUnyIwfoVGMnHGPUK
+        cgLLEUZOMewaw+n4O2KKUdcYJtAIw1/BjXE1wrAJhnmqEkNjbnSCUR5ulOARZpoHzKMBkfwE6fQV
+        +nlsyqbuU+nlw+UtJphSogVbVHAYptdHzYd9V9u4dlXBPBjY4qAdbIUKxrgOmVvLD4lImFUguogI
+        xoh4qLyDApQbqFF56qXDQjFDRwmFKNTzZbIQzwl8Z4usSDsfD8ZCMsNDEE6gOIlFPDRj1zw+tlHe
+        tIfVwZ0v+ShQ+MKIzjLCmnAByshFlAhRsl/FhNWfUBDhKMnqVR1bAznr04mK2fTRknKuOF+YPUx6
+        suevvakORdJB9wWZKJ+ViVJNKGfLVKKaeyXamwMcnP69RWlIZ7gwjJDCTC2LGMZaXbN5WxzKFmL2
+        w3jNU8IQK01gky3jBKXKQwnksbW7mvi4kFDNccGaa83UsuRhFK6GntKTmbipbBxlK+OrQpckIjKU
+        80WRwjmNl0UOI+FR6XfzYh0ifF4jqaSGu9KyeGEMt+drKu+r1FWgVXwdODwkNScPQVwwjRceXhhJ
+        DyeQJ62icu8X6BVJpDQcGHrZfpfY98/2Lp5ECg+J9Af894tAVNrBn5n7DljCEa/e8ZeddX9SPw/v
+        naFNNqPfn7ZM+supa92fAVw814ivkRM3rsx4DIs1EmvCgtNP3wAL/obGvA4AAA==
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept, Authorization, Cache-Control
+      Access-Control-Allow-Methods:
+      - POST, GET, OPTIONS, PUT, DELETE, PATCH
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Expose-Headers:
+      - Authorization, Cache-Control
+      Cache-Control:
+      - max-age=0, no-cache
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '1072'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 31 May 2022 09:18:21 GMT
+      Server:
+      - gunicorn
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 vegur
+      X-Api-Pool:
+      - common
+    status:
+      code: 200
+      message: OK
+version: 1

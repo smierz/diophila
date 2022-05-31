@@ -1,0 +1,50 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.27.1
+    method: GET
+    uri: https://api.openalex.org/concepts?group_by=level&sort=key%3Adesc
+  response:
+    body:
+      string: '{"meta":{"count":6,"db_response_time_ms":4,"page":1,"per_page":200},"results":[],"group_by":[{"key":"5","key_display_name":"5","count":6136},{"key":"4","key_display_name":"4","count":12406},{"key":"3","key_display_name":"3","count":24768},{"key":"2","key_display_name":"2","count":21460},{"key":"1","key_display_name":"1","count":284},{"key":"0","key_display_name":"0","count":19}]}
+
+        '
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept, Authorization, Cache-Control
+      Access-Control-Allow-Methods:
+      - POST, GET, OPTIONS, PUT, DELETE, PATCH
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Expose-Headers:
+      - Authorization, Cache-Control
+      Cache-Control:
+      - max-age=0, no-cache
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '383'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 31 May 2022 09:18:02 GMT
+      Server:
+      - gunicorn
+      Via:
+      - 1.1 vegur
+      X-Api-Pool:
+      - common
+    status:
+      code: 200
+      message: OK
+version: 1

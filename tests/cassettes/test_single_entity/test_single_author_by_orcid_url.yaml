@@ -1,0 +1,68 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.27.1
+    method: GET
+    uri: https://api.openalex.org/authors/https://orcid.org/0000-0003-1613-5981
+  response:
+    body:
+      string: !!binary |
+        H4sIAGDdlWIA/7WWTW/bOBCG7/srDB168gc5/JBkoCi8yaEB2m3aLpDDojAYiYmJyKRA0VGMIv+9
+        pJykkc3G1mEF2JCoGfKZeUfk/ExUmcyTlXN1M5/NTC21qOTD1Njb2QLnPAfEEIFknBhb9E3Dc2eH
+        /DXxPzLBHJMJyzPs7UvV1JXYLrVYS+/2UQq3kna0mI4uVWtaYfdslqJy0mrh1L1skvl/P8ZJa+xd
+        syzMRrtkztA4KZST5fJ6+zwGPMdjH4G3/5k8s/8/4azFrbfuTeFa5Tzy0yR+jqeBaWHWMysbKWyx
+        snKtHrxxU5h60/y2bdt2uhvrzJX2GSlnYuNWxp5LJ1TVTDe2+rAbuTh/DwwDcMgAoXe1sE7LMPr5
+        n+zfL4tv35PHcVKJxi3vtGn1UunGKbdxyuiQmj9rfEEB7a4QpDX2laF/2iUEtEV3gqaHqn7Z2NG3
+        p0j9204WG+Qpw9uzRcjStg732ujamhvlAumDt9CFrF0Q+i28M4oRyjDN/EStulOlcOKVbUji83Bn
+        Hx5mXwHjPDuEPTPreuP1GTWFkn55b1HJe1klc9TpY71Rlk3R4/hNJGAAKU8x58OgSEopJ4dY597u
+        EAm/IHF6FAkTnnKKAA0iol0EezRXxlbl6EqVcnQlr2M8jB/nSX2slLJBOIRTCodAl6ZSThWieks2
+        dkKO8pyRHCgeBOUDiVTSJ9FGM3MCBfe1ibOuDk6n8OycsQiHurbCbt+qHnqcKeOZ39DowOLpim2P
+        529lKnO7jSlE0FGOFAd50DAO7PMZIfksS1UoHS0WOKGAAwgmA/cdnALNI2df94WvlVb6NiYRHJcI
+        0jSjyNdiOgyIMs4ARZAWlVtLZ1XR/CaCQUQEA4GBO06GeQaRTedC3xi7FuG4GtmAJe9FFU0VnCAd
+        JgRyToeVM47szJerbdPLEBoCEjTLEGN42I6D0xjKmXJdeqJqBZYfT6dvE9qjrT+Qu5N1dwMIYK+b
+        ijRTDEJALx54zwNH2q8877mgPRc4dPEH1WsXnB93gRz3XLI9FxLrC1nPJT1hFeiD8RPCJ6jnwo7n
+        GFLSc6EnrIJ7umCy55LHYumvsi9+JHyv5EvDLWq19K3nq1L1I9NecXeGH25UaNnf71rUqSrn/RZ7
+        U/vS9quEfz9ZqMKJ76pRHjpFK/vvMJ8gPgGaPP71C5CrZM+UDAAA
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept, Authorization, Cache-Control
+      Access-Control-Allow-Methods:
+      - POST, GET, OPTIONS, PUT, DELETE, PATCH
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Expose-Headers:
+      - Authorization, Cache-Control
+      Cache-Control:
+      - max-age=0, no-cache
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '894'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 31 May 2022 09:18:24 GMT
+      Server:
+      - gunicorn
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 vegur
+      X-Api-Pool:
+      - common
+    status:
+      code: 200
+      message: OK
+version: 1

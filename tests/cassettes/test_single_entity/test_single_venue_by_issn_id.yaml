@@ -1,0 +1,66 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.27.1
+    method: GET
+    uri: https://api.openalex.org/venues/issn:1431-5890
+  response:
+    body:
+      string: !!binary |
+        H4sIAGXdlWIA/51WyW7bMBC99ysCnm2Z+2KgKNCceijaoEB7CApBkRibjTaIUhwjyL935DSGLRFW
+        1IthDeeRb2becPiMXIbWaNu2tV+vVlVtyyS3T1HVbFY/OWGCY8nRAjnvyzgHT2wYWSph1D8jWt8i
+        wsEmtMFgO10ngtIllVKh3wuUOV/nyT4uk8LCPtdbW3wp76umAMe6u8ud39oGFn653O7BtquaBx+n
+        VVe2aK2oZhgvUOpam8V3+zc7FZQw3DOJqwSt75Pc28OXK+OsSv4cTduqsHWysXHXQBRll+fglnm0
+        fkZvMf93GopkA5aB1zvz8rJATxBMmdq6BTa3zxfqcU20EIZK3e+3cw8uS9rkxHm320Vv5gOg/1jd
+        UEYNCubf+bbpU53bRwtBQR59WjWwSjCO8MviMhmllcGSziNDIEtkzOZbs0lKl16lY1bkyErpiE6Q
+        0pAcRvk8TvwQw4DRZ1fl1SaYHaEjMZUcISRXVJp5leKMCzHm8tVmLnWw/eX8CBHJCV5CcMO0VLNo
+        KWx4MEGX2bCITGUJmhfEeeiZGeUibMzm+3bvXepD5WIyUlNEJAEtUzlPN5pSGUjMNXjlwOaEDD0l
+        M6VhYqiQoOF5RaJUKyYD2kla2zi4BK986izcM8EUkUnlKAKU8Nxu1xKTQLv/AE72snyomryBJNz+
+        WB6Cfj8lwwMlu+mSsu2Kq8Km2/4e8kFGMuITjCgxguCZetbGUEIDOqqKO2j6turLd7nzad9rMGMP
+        U9H383Fvk+YwTl7/UEzJYKTK8TSFHugDPELwAEIDGMZPIcQMIGyMkISeQfTwlABmAFFDSOBpQLg5
+        B8kBiDDNVQiHB6eJIVByGXqLwAUiz4B8CITLl4eABuszIBtRhbdFAKhBbGdAOjoRZkqgaBA77gXz
+        6pzU7vVddJQqWKIzaR8cP927HDr347bybfxoy85GLlufvo+6GsQNR/W/sB2khC6xWOJ+LW3s+RqR
+        SyyXlKOXD38BV68ICYcKAAA=
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept, Authorization, Cache-Control
+      Access-Control-Allow-Methods:
+      - POST, GET, OPTIONS, PUT, DELETE, PATCH
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Expose-Headers:
+      - Authorization, Cache-Control
+      Cache-Control:
+      - max-age=0, no-cache
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '758'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 31 May 2022 09:18:29 GMT
+      Server:
+      - gunicorn
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 vegur
+      X-Api-Pool:
+      - common
+    status:
+      code: 200
+      message: OK
+version: 1

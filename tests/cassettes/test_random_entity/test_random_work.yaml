@@ -1,0 +1,95 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.27.1
+    method: GET
+    uri: https://api.openalex.org/works/random
+  response:
+    body:
+      string: !!binary |
+        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
+        78sf/g2K1dYHKBsAAA==
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept, Authorization, Cache-Control
+      Access-Control-Allow-Methods:
+      - POST, GET, OPTIONS, PUT, DELETE, PATCH
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Expose-Headers:
+      - Authorization, Cache-Control
+      Cache-Control:
+      - max-age=0, no-cache
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '2407'
+      Content-Type:
+      - application/json
+      Date:
+      - Tue, 31 May 2022 09:18:22 GMT
+      Server:
+      - gunicorn
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 vegur
+      X-Api-Pool:
+      - common
+    status:
+      code: 200
+      message: OK
+version: 1
