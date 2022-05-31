@@ -72,6 +72,15 @@ def test_list_of_entities_basic_paging_no_valid_pages():
     assert len(list(author_pages)) == 0
 
 
+@pytest.mark.vcr
+def test_list_of_works_by_api_url():
+    works_api_url = "https://api.openalex.org/works?filter=author.id:A1969205032"
+    work_pages = openalex.get_works_by_api_url(works_api_url)
+    first_page = next(work_pages)
+    assert first_page['meta']['count'] > 0
+    assert len(first_page['results']) > 0
+
+
 # test for exceptions
 def test_list_filter_is_not_filterable_attr():
     filters = {"hallo": "test"}

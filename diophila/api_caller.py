@@ -41,15 +41,15 @@ class APICaller:
 
     def get_all(self,
                 path: str,
-                params: Optional[dict] = None,
+                params: dict,
                 per_page: Optional[int] = None,
                 pages: Optional[List[int]] = None) -> Iterable:
         """ Make multiple GET requests to the API to paginate through results.
 
         Args:
             path (str): path that will be concatenated to the base URL of the OpenAlex API.
-            params (Optional[dict]): dictionary containing items that will be constructed
-                        into a query string, optional.
+            params (dict): dictionary containing items that will be constructed
+                        into a query string.
             per_page (Optional[int]): number of entities per page. Needs to be in [1;200].
                 Defaults to 25.
             pages (Optional[List[int]]): list of page numbers to query from API, optional.

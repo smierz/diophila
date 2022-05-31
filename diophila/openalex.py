@@ -308,3 +308,21 @@ class OpenAlex:
             Generator, each item a dict from JSON representing a (partial) list of works.
         """
         return Works(self._api_caller).get_list(filters, sort, per_page, pages)
+
+    # Convenience method to retrieve works referenced by another entity
+    def get_works_by_api_url(self, works_api_url:str,
+                          per_page: Optional[int] = None,
+                          pages: Optional[List[int]] = None):
+        """ Get list of works via another entity's `works_api_url` property.
+
+        Args:
+            works_api_url (str): reference to a list of works connected to another entity.
+            per_page (Optional[int]): number of entities per page, defaults to 25.
+                Needs to be between [1;200].
+            pages (Optional[List[int]]): list of page numbers to query from API, optional.
+                If empty, cursor pagination will be used.
+
+        Returns:
+            Generator, each item a dict from JSON representing a (partial) list of works.
+        """
+        return Works(self._api_caller).get_by_api_url(works_api_url, per_page, pages)
