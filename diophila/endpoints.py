@@ -334,3 +334,11 @@ class Works(_Endpoint):
         "to_publication_date",
         "type"
     )
+
+    def get_by_api_url(self, works_api_url:str,
+                          per_page: Optional[int] = None,
+                          pages: Optional[List[int]] = None):
+        """ Convenience method to get list of works by a `works_api_url`."""
+        query_string = works_api_url.split(self.name, 1)[1]
+        path = f"{self.name}{query_string}"
+        return self.api_caller.get_all(path, {}, per_page, pages)

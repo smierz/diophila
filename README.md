@@ -69,6 +69,17 @@ for page in pages_of_venues:        # loop through pages
         venue['id']
 ```
 
+Bonus: If you want to retrieve all `works` connected to another entity,
+you may use the entity's `works_api_url` property with the `get_works_by_api_url` method: 
+```Python
+works_api_url = "https://api.openalex.org/works?filter=author.id:A1969205032"
+pages_of_works = openalex.get_works_by_api_url(works_api_url)
+
+for page in pages_of_works:
+    for work in page['results']:
+        work['display_name']
+```
+
 ### The Polite Pool
 It's a good idea to use OpenAlex [polite pool](https://docs.openalex.org/api#the-polite-pool) 
 which offers faster response times for users providing an email address.
