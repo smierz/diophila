@@ -61,7 +61,7 @@ pages = None
 pages = [1, 2, 3]
 
 filters = {"is_oa": "true",
-           "works_count": ">200"}
+           "works_count": ">15000"}
 pages_of_venues = openalex.get_list_of_venues(filters=filters, pages=pages)
 
 for page in pages_of_venues:        # loop through pages
