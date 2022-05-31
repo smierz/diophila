@@ -67,7 +67,7 @@ class OpenAlex:
 
         Args:
             id_value (str): value of an ID identifying a specific author.
-            id_type (Optional[str]): type of the specified id_value e.g. 'diophila', 'mag'.
+            id_type (Optional[str]): type of the specified id_value e.g. 'openalex', 'mag'.
                         Will be used as a namespace for the id_value. optional.
 
         Returns:
@@ -80,7 +80,7 @@ class OpenAlex:
 
         Args:
             id_value (str): value of an ID identifying a specific concept.
-            id_type (Optional[str]): type of the specified id_value e.g. 'diophila', 'mag'.
+            id_type (Optional[str]): type of the specified id_value e.g. 'openalex', 'mag'.
                         Will be used as a namespace for the id_value. optional.
 
         Returns:
@@ -93,7 +93,7 @@ class OpenAlex:
 
         Args:
             id_value (str): value of an ID identifying a specific institution.
-            id_type (Optional[str]): type of the specified id_value e.g. 'diophila', 'mag'.
+            id_type (Optional[str]): type of the specified id_value e.g. 'openalex', 'mag'.
                         Will be used as a namespace for the id_value. optional.
 
         Returns:
@@ -106,7 +106,7 @@ class OpenAlex:
 
         Args:
             id_value (str): value of an ID identifying a specific venue.
-            id_type (Optional[str]): type of the specified id_value e.g. 'diophila', 'mag'.
+            id_type (Optional[str]): type of the specified id_value e.g. 'openalex', 'mag'.
                         Will be used as a namespace for the id_value. optional.
 
         Returns:
@@ -119,7 +119,7 @@ class OpenAlex:
 
         Args:
             id_value (str): value of an ID identifying a specific work.
-            id_type (Optional[str]): type of the specified id_value e.g. 'diophila', 'mag'.
+            id_type (Optional[str]): type of the specified id_value e.g. 'openalex', 'mag'.
                         Will be used as a namespace for the id_value. optional.
 
         Returns:
