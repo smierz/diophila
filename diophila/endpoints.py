@@ -52,7 +52,7 @@ class _Endpoint:
 
         Args:
             id_value (str): value of an ID identifying a specific author.
-            id_type (Optional[str]): type of the specified `id_value` e.g. 'diophila', 'mag'.
+            id_type (Optional[str]): type of the specified `id_value` e.g. 'openalex', 'mag'.
                         Will be used as a namespace for the `id_value`.
                         `id_type` can be left out if `id_value` is a supported external ID
                          (URL) or OpenAlex ID.
@@ -201,7 +201,7 @@ class _Endpoint:
 class Authors(_Endpoint):
     """Authors endpoint."""
     name = "authors"
-    id_attrs = ("diophila", "orcid", "mag")
+    id_attrs = ("openalex", "orcid", "mag")
     filter_attrs = (
         "cited_by_count",
         "display_name",
@@ -223,7 +223,7 @@ class Authors(_Endpoint):
 class Concepts(_Endpoint):
     """Concepts endpoint."""
     name = "concepts"
-    id_attrs = ("diophila", "wikidata", "mag")
+    id_attrs = ("openalex", "wikidata", "mag")
     filter_attrs = (
         "ancestors.id",
         "cited_by_count",
@@ -242,7 +242,7 @@ class Concepts(_Endpoint):
 class Institutions(_Endpoint):
     """Institutions endpoint."""
     name = "institutions"
-    id_attrs = ("diophila", "ror", "mag")
+    id_attrs = ("openalex", "ror", "mag")
     filter_attrs = (
         "cited_by_count",
         "country_code",
@@ -262,7 +262,7 @@ class Institutions(_Endpoint):
 class Venues(_Endpoint):
     """Venues endpoint."""
     name = "venues"
-    id_attrs = ("diophila", "issn", "issn_l", "mag")
+    id_attrs = ("openalex", "issn", "issn_l", "mag")
     filter_attrs = (
         "cited_by_count",
         "display_name",
@@ -283,7 +283,7 @@ class Venues(_Endpoint):
 class Works(_Endpoint):
     """Works endpoint."""
     name = "works"
-    id_attrs = ("diophila", "doi", "pmid", "mag")
+    id_attrs = ("openalex", "doi", "pmid", "mag")
     filter_attrs = (
         "alternate_host_venues.id",
         "alternate_host_venues.license",
@@ -334,3 +334,11 @@ class Works(_Endpoint):
         "to_publication_date",
         "type"
     )
+
+    def get_by_api_url(self, works_api_url:str,
+                          per_page: Optional[int] = None,
+                          pages: Optional[List[int]] = None):
+        """ Convenience method to get list of works by a `works_api_url`."""
+        query_string = works_api_url.split(self.name, 1)[1]
+        path = f"{self.name}{query_string}"
+        return self.api_caller.get_all(path, {}, per_page, pages)

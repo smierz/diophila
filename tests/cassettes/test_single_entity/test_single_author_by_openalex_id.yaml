@@ -11,11 +11,11 @@ interactions:
       User-Agent:
       - python-requests/2.27.1
     method: GET
-    uri: https://api.openalex.org/authors/A1969205032
+    uri: https://api.openalex.org/authors/openalex:A1969205032
   response:
     body:
       string: !!binary |
-        H4sIAF/dlWIA/7WWTW/bOBCG7/srDB168gc5/JBkoCi8yaEB2m3aLpDDojAYiYmJyKRA0VGMIv+9
+        H4sIAMsblmIA/7WWTW/bOBCG7/srDB168gc5/JBkoCi8yaEB2m3aLpDDojAYiYmJyKRA0VGMIv+9
         pJykkc3G1mEF2JCoGfKZeUfk/ExUmcyTlXN1M5/NTC21qOTD1Njb2QLnPAfEEIFknBhb9E3Dc2eH
         /DXxPzLBHJMJyzPs7UvV1JXYLrVYS+/2UQq3kna0mI4uVWtaYfdslqJy0mrh1L1skvl/P8ZJa+xd
         syzMRrtkztA4KZST5fJ6+zwGPMdjH4G3/5k8s/8/4azFrbfuTeFa5Tzy0yR+jqeBaWHWMysbKWyx
@@ -53,7 +53,7 @@ interactions:
       Content-Type:
       - application/json
       Date:
-      - Tue, 31 May 2022 09:18:23 GMT
+      - Tue, 31 May 2022 13:44:43 GMT
       Server:
       - gunicorn
       Vary:

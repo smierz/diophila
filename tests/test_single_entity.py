@@ -8,7 +8,8 @@ openalex = OpenAlex()
 @pytest.mark.vcr
 def test_single_author_by_openalex_id():
     openalex_id = "A1969205032"
-    single_author = openalex.get_single_author(openalex_id)
+    id_type = "openalex"
+    single_author = openalex.get_single_author(openalex_id, id_type)
     assert single_author['id'] == f"https://openalex.org/{openalex_id}"
 
 
