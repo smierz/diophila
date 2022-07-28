@@ -191,8 +191,10 @@ class _Endpoint:
         # Groupable attributes are mostly the same as filterable attributes except dates and counts
         # see https://docs.openalex.org/api/get-groups-of-entities#groupable-attributes
         non_groupable_endings = ("_date", "_count")
+        # excluded: https://github.com/ourresearch/openalex-elastic-api/blob/master/settings.py
+        do_not_group_by = ("cited_by", "related_to", "doi", "mag", "pmid", "pmcid", "openalex")
         for fltr in self.filter_attrs:
-            if not fltr.endswith(non_groupable_endings):
+            if not fltr.endswith(non_groupable_endings) and fltr not in do_not_group_by:
                 yield fltr
 
 
@@ -285,6 +287,7 @@ class Works(_Endpoint):
     name = "works"
     id_attrs = ("openalex", "doi", "pmid", "mag")
     filter_attrs = (
+        "abstract.search",
         "alternate_host_venues.id",
         "alternate_host_venues.license",
         "alternate_host_venues.version",
@@ -314,6 +317,10 @@ class Works(_Endpoint):
         "host_venue.id",
         "host_venue.issn",
         "host_venue.publisher",
+        "ids.mag",
+        "ids.openalex",
+        "ids.pmcid",
+        "ids.pmid",
         "institution.id",
         "institutions.country_code",
         "institutions.id",
@@ -323,10 +330,14 @@ class Works(_Endpoint):
         "is_paratext",
         "is_retracted",
         "journal.id",
+        "mag",
         "oa_status",
         "open_access.is_oa",
         "open_access.oa_status",
+        "openalex",
         "openalex_id",
+        "pmcid",
+        "pmid",
         "publication_date",
         "publication_year",
         "raw_affiliation_string.search",
