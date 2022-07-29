@@ -113,7 +113,7 @@ class _Endpoint:
 
         params = {'group_by': self.__build_group_by_param(group_by),
                   'filter': self.__build_filter_param(filters),
-                  'sort': self.__build_sort_param(sort, None, True)}
+                  'sort': self.__build_sort_param_for_groups(sort)}
         return self.api_caller.get(self.name, params)
 
     # Get list of entities
@@ -141,7 +141,7 @@ class _Endpoint:
                         for this endpoint.
         """
         params = {'filter': self.__build_filter_param(filters),
-                  'sort': self.__build_sort_param(sort, filters, False)}
+                  'sort': self.__build_sort_param_for_list(sort, filters)}
 
         return self.api_caller.get_all(self.name, params, per_page, pages)
 
@@ -158,19 +158,34 @@ class _Endpoint:
         raise ValueError("Value for 'filter' key not valid."
                          f"Valid filter keys are {','.join(self.filter_attrs)}.")
 
-    def __build_sort_param(self, sort: Optional[dict],
-                           filters: Optional[dict],
-                           is_group_by: bool) -> Optional[str]:
-        """Helper method validating and constructing the 'sort' parameter."""
+    def __build_sort_param_for_list(self, sort: Optional[dict],
+                                    filters: Optional[dict]) -> Optional[str]:
+        """Helper method validating and constructing the 'sort' parameter for lists ."""
         if not sort:
             return None  # nothing to do here
 
         # special case: 'relevance_score' only valid sorting key if one filter is a search
-        is_search = filters and any(f.endsWith(".search") for f in filters.keys())
+        is_search = filters and any(f.endswith(".search") for f in filters.keys())
         if "relevance_score" in sort.keys() and not is_search:
             raise ValueError("You can only sort by 'relevance_score' when searching.")  # fail fast
 
-        sortable_keys = self.sortable_attrs_for_groups if is_group_by else self.sortable_attrs
+        # default case
+        sortable_keys = self.sortable_attrs
+        sortable_values = self.sortable_drctns
+        if (all(sk in sortable_keys for sk in sort.keys())
+                and all(sv in sortable_values for sv in sort.values())):
+            return ",".join(f"{k}:{v}" for k, v in sort.items())
+
+        raise ValueError("Item for sorting dict not valid.\n"
+                         f"Valid sorting keys are {','.join(sortable_keys)} "
+                         f"and valid sorting values are {','.join(sortable_values)}.")
+
+    def __build_sort_param_for_groups(self, sort: Optional[dict]) -> Optional[str]:
+        """Helper method validating and constructing the 'sort' parameter for groups."""
+        if not sort:
+            return None  # nothing to do here
+
+        sortable_keys = self.sortable_attrs_for_groups
         sortable_values = self.sortable_drctns
         if (all(sk in sortable_keys for sk in sort.keys())
                 and all(sv in sortable_values for sv in sort.values())):
