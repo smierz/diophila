@@ -9,9 +9,12 @@ class _Endpoint:
     name: str = ""
     id_attrs: tuple = ()
     filter_attrs: tuple = ()
+    groupable_attrs: tuple = ()
 
     # make sure every endpoint includes required parameters and overwrites empty values
-    def __init_subclass__(cls, required=('name', 'id_attrs', 'filter_attrs'), **kwargs):
+    def __init_subclass__(cls,
+                          required=('name', 'id_attrs', 'filter_attrs', 'groupable_attrs'),
+                          **kwargs):
         """ Helper method making sure that the required class variables
          are present (overwritten) in every subclass."""
         for req in required:
@@ -108,7 +111,7 @@ class _Endpoint:
         if not group_by:  # fail fast
             raise ValueError("'group_by' argument can not be empty")
 
-        params = {'group_by': self.__validate_group_by_param(group_by),
+        params = {'group_by': self.__build_group_by_param(group_by),
                   'filter': self.__build_filter_param(filters),
                   'sort': self.__build_sort_param(sort, None, True)}
         return self.api_caller.get(self.name, params)
@@ -177,25 +180,13 @@ class _Endpoint:
                          f"Valid sorting keys are {','.join(sortable_keys)} "
                          f"and valid sorting values are {','.join(sortable_values)}.")
 
-    def __validate_group_by_param(self, group_by: str) -> str:
+    def __build_group_by_param(self, group_by: str) -> str:
         """Helper method validating the 'group_by' parameter."""
-        groupable_attrs = self.__get_groupable_attrs()
-        if group_by in groupable_attrs:
+        if group_by in self.groupable_attrs:
             return group_by
 
         raise ValueError("Value for 'group_by' not in groupable attributes."
-                         f"\nGroupable attributes are {','.join(self.__get_groupable_attrs())}.")
-
-    def __get_groupable_attrs(self) -> Iterable:
-        """Helper method constructing the groupable attributes from the filterable attributes."""
-        # Groupable attributes are mostly the same as filterable attributes except dates and counts
-        # see https://docs.openalex.org/api/get-groups-of-entities#groupable-attributes
-        non_groupable_endings = ("_date", "_count")
-        # excluded: https://github.com/ourresearch/openalex-elastic-api/blob/master/settings.py
-        do_not_group_by = ("cited_by", "related_to", "doi", "mag", "pmid", "pmcid", "openalex")
-        for fltr in self.filter_attrs:
-            if not fltr.endswith(non_groupable_endings) and fltr not in do_not_group_by:
-                yield fltr
+                         f"\nGroupable attributes are {','.join(self.groupable_attrs)}.")
 
 
 # --------------------------------------------------------------------------
@@ -220,6 +211,14 @@ class Authors(_Endpoint):
         "works_count",
         "x_concepts.id"
     )
+    groupable_attrs = (
+        "has_orcid",
+        "last_known_institution.country_code",
+        "last_known_institution.id",
+        "last_known_institution.ror",
+        "last_known_institution.type",
+        "x_concepts.id"
+    )
 
 
 class Concepts(_Endpoint):
@@ -238,6 +237,11 @@ class Concepts(_Endpoint):
         "openalex_id",
         "wikidata_id",
         "works_count"
+    )
+    groupable_attrs = (
+        "ancestors.id",
+        "has_wikidata",
+        "level"
     )
 
 
@@ -259,6 +263,12 @@ class Institutions(_Endpoint):
         "works_count",
         "x_concepts.id"
     )
+    groupable_attrs = (
+        "country_code",
+        "has_ror",
+        "type",
+        "x_concepts.id"
+    )
 
 
 class Venues(_Endpoint):
@@ -278,6 +288,14 @@ class Venues(_Endpoint):
         "openalex_id",
         "publisher",
         "works_count",
+        "x_concepts.id"
+    )
+    groupable_attrs = (
+        "has_issn",
+        "issn",
+        "is_in_doaj",
+        "is_oa",
+        "publisher",
         "x_concepts.id"
     )
 
@@ -345,6 +363,38 @@ class Works(_Endpoint):
         "related_to",
         "title.search",
         "to_publication_date",
+        "type"
+    )
+    groupable_attrs = (
+        "alternate_host_venues.id",
+        "alternate_host_venues.license",
+        "alternate_host_venues.version",
+        "author.id",
+        "author.orcid",
+        "authorships.author.id",
+        "authorships.author.orcid",
+        "authorships.institutions.country_code",
+        "authorships.institutions.id",
+        "authorships.institutions.ror",
+        "authorships.institutions.type",
+        "cites",
+        "concepts.id",
+        "concepts.wikidata",
+        "has_doi",
+        "host_venue.id",
+        "host_venue.issn",
+        "host_venue.publisher",
+        "institutions.country_code",
+        "institutions.id",
+        "institutions.ror",
+        "institutions.type",
+        "is_oa",
+        "is_paratext",
+        "is_retracted",
+        "journal.id",
+        "open_access.is_oa",
+        "open_access.oa_status",
+        "publication_year",
         "type"
     )
 

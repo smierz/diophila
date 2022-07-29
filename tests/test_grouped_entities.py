@@ -22,10 +22,10 @@ def test_authors_group_by_with_filter():
 
 @pytest.mark.vcr
 def test_authors_group_by_with_sort():
-    group_by = "x_concepts.id"
+    group_by = "last_known_institution.type"
     sort = {"key": "asc"}
     grouped_authors = openalex.get_groups_of_authors(group_by, None, sort)
-    assert grouped_authors['group_by'][0]['key'] == "https://openalex.org/C100001284"
+    assert grouped_authors['group_by'][0]['key'] == "archive"
 
 
 # tests for /concepts endpoint
