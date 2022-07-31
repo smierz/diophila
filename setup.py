@@ -6,7 +6,7 @@ with open("README.md", "r", encoding="utf-8") as readme:
 setup(
     name="diophila",
     packages=["diophila"],
-    version="0.3.0",
+    version="0.4.0",
     author="Sandra Mierz",
     description="Python API Wrapper for OpenAlex",
     long_description=long_description,

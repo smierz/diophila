@@ -11,16 +11,19 @@ interactions:
       User-Agent:
       - python-requests/2.27.1
     method: GET
-    uri: https://api.openalex.org/authors?group_by=last_known_institution.type&sort=key%3Aasc
+    uri: https://api.openalex.org/works?group_by=type&search=test&sort=key%3Aasc
   response:
     body:
       string: !!binary |
-        H4sIAJa+42IA/3WRwY6DIBCG7/sYc/YgCBV8lU1DqE4rqYJBbGOM7742q8EmeoLJx/8xAxO0GDQU
-        E5RusAEKmUB1Ux77ztkeVTAtqraHgl4kSaDTD4Tis0Gv/guapnMCS2BownLu95rAw7uhU7dxqSZ4
-        4rKC9mVtXgjJp1aV6btGj8rqFr/g2oQQOcnnZAuXru20HY/DEa5hmmVE0jTGsRpKHYyzx4I9XhWM
-        MMYzvnPcdWkaE0562NGtCSEvjNEoeLgXetviAg8VX3yVZISRTIooqVE3oS61P3nIL77NIrgkjEeJ
-        dbbz7m5OGtnjVUFSLkhGosKFGv1xfEPbCDllnMXkYJ/WvU9+IsLtYkmFEJTn83X++QOIvkbGqwIA
-        AA==
+        H4sIAFBX5mIA/4WV0a6jIBCG7/cxuNZExIr2VTYnhups61aBAJ6Tpum7L5sjwlGxVy2Z//8YhmF8
+        ohEMQ+cnasXEDTrnNEHdpVGgpeAaGtOP0IwancsESXYFdMb2D6jme5Fn2StBVj0Nxop+fyToqsQk
+        m8vDrp7oDvYXXYS4o+T/oul6LQf2aDgbwUfmzU84x6dXEtrS9sakARW3B4oZQ/KSVvWKI5kyB5A5
+        PBOKcuXW0Jpe8AOAV7gsNgjVgz4kzIIZsCmFhqMTfEe3m7ditFcJPOINw64Hakq9v2OGRXf2wSVp
+        UuSBudf2WIbFi7dSuPzJieLgCq+KxQ7gQi55b/orJsXZsG/zwaVr6Maa2q7o2wEOEYFoRlFCaEbw
+        FmfPOr2BOYnLqqi3J0o/xTCNb0CLxiXlMaPgwpZN3vYJYXgpTl14vzC32It0IfeQCK28TwKoVMFn
+        D1/77p8CX4KgE6TQBrq0FdxEe3qjcaSswKfgaUslWoCu59fIu/wpmClVhXcRx82yL3R3QzGh+T71
+        aG7s6nbGh4I/oIC3kMZH8UazzMJqD2QLqx7vSE40o8oir0OWFLGZvMRcgTJSV2vrYWnWEveJCUeb
+        Nox3THX7hCDqssCYBLc08TsXX5G55oPuPsqqqMri9fH69Q8TBBqbdgcAAA==
     headers:
       Access-Control-Allow-Credentials:
       - 'true'
@@ -39,11 +42,11 @@ interactions:
       Content-Encoding:
       - gzip
       Content-Length:
-      - '286'
+      - '499'
       Content-Type:
       - application/json
       Date:
-      - Fri, 29 Jul 2022 11:03:50 GMT
+      - Sun, 31 Jul 2022 10:20:00 GMT
       Server:
       - gunicorn
       Vary:

@@ -31,7 +31,7 @@ You can use the client to query for a [single random entity](https://docs.openal
 with the method `get_random_<entity>`:
 ```Python
 random_author = openalex.get_random_author()
-random_author['orcid']
+random_author['id']
 ```
 
 Or if you have a [specific entity](https://docs.openalex.org/api/get-single-entities) in mind, you can use the client
@@ -98,4 +98,5 @@ please drop the OpenAlex team a line at team@ourresearch.org
 or alternatively look into [using a snapshot](https://docs.openalex.org/download-snapshot).
 
 ### Citation
-If you are using OpenAlex in your research, they kindly ask you to cite https://doi.org/10.48550/arXiv.2205.01833
+If you are using OpenAlex in your research, 
+the OpenAlex team kindly asks you to cite https://doi.org/10.48550/arXiv.2205.01833
