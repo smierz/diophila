@@ -16,7 +16,7 @@ def test_authors_group_by():
 def test_authors_group_by_with_filter():
     group_by = "has_orcid"
     filters = {"works_count": ">20000"}
-    grouped_authors = openalex.get_groups_of_authors(group_by, filters)
+    grouped_authors = openalex.get_groups_of_authors(group_by=group_by, filters=filters)
     assert grouped_authors['group_by'][0]['count'] == 0
 
 
@@ -24,7 +24,7 @@ def test_authors_group_by_with_filter():
 def test_authors_group_by_with_sort():
     group_by = "last_known_institution.type"
     sort = {"key": "asc"}
-    grouped_authors = openalex.get_groups_of_authors(group_by, None, sort)
+    grouped_authors = openalex.get_groups_of_authors(group_by=group_by, sort=sort)
     assert grouped_authors['group_by'][0]['key'] == "archive"
 
 
@@ -40,7 +40,7 @@ def test_concepts_group_by():
 def test_concepts_group_by_with_filter():
     group_by = "level"
     filters = {"level": ">3"}
-    grouped_concepts = openalex.get_groups_of_concepts(group_by, filters)
+    grouped_concepts = openalex.get_groups_of_concepts(group_by=group_by, filters=filters)
     assert grouped_concepts['group_by'][0]['key'] == '4'
 
 
@@ -48,7 +48,7 @@ def test_concepts_group_by_with_filter():
 def test_concepts_group_by_with_sort():
     group_by = "level"
     sort = {"key": "desc"}
-    grouped_concepts = openalex.get_groups_of_concepts(group_by, None, sort)
+    grouped_concepts = openalex.get_groups_of_concepts(group_by=group_by, sort=sort)
     assert grouped_concepts['group_by'][0]['key'] == '5'
 
 
@@ -64,7 +64,7 @@ def test_institutions_group_by():
 def test_institutions_group_by_with_filter():
     group_by = "has_ror"
     filters = {"has_ror": "true"}
-    grouped_institutions = openalex.get_groups_of_institutions(group_by, filters)
+    grouped_institutions = openalex.get_groups_of_institutions(group_by=group_by, filters=filters)
     assert grouped_institutions['group_by'][1]['key'] == 'false'
     assert grouped_institutions['group_by'][1]['count'] == 0
 
@@ -73,7 +73,7 @@ def test_institutions_group_by_with_filter():
 def test_institutions_group_by_with_sort():
     group_by = "type"
     sort = {"key": "asc", "count": "desc"}
-    grouped_institutions = openalex.get_groups_of_institutions(group_by, None, sort)
+    grouped_institutions = openalex.get_groups_of_institutions(group_by=group_by, sort=sort)
     assert grouped_institutions['group_by'][0]['key'] == 'company'
 
 
@@ -89,7 +89,7 @@ def test_venues_group_by():
 def test_venues_group_by_with_filter():
     group_by = "is_oa"
     filters = {"is_oa": "true"}
-    grouped_venues = openalex.get_groups_of_venues(group_by, filters)
+    grouped_venues = openalex.get_groups_of_venues(group_by=group_by, filters=filters)
     assert grouped_venues['group_by'][0]['key'] == 'true'
     assert grouped_venues['group_by'][0]['count'] > 0
 
@@ -98,7 +98,7 @@ def test_venues_group_by_with_filter():
 def test_venues_group_by_with_sort():
     group_by = "publisher"
     sort = {"key": "asc", "count": "desc"}
-    grouped_venues = openalex.get_groups_of_venues(group_by, None, sort)
+    grouped_venues = openalex.get_groups_of_venues(group_by=group_by, sort=sort)
     assert grouped_venues['group_by'][0]['key'] == 'unknown'
 
 
@@ -114,7 +114,7 @@ def test_works_group_by():
 def test_works_group_by_with_filter():
     group_by = "has_doi"
     filters = {"has_doi": "true"}
-    grouped_works = openalex.get_groups_of_works(group_by, filters)
+    grouped_works = openalex.get_groups_of_works(group_by=group_by, filters=filters)
     assert grouped_works['group_by'][1]['key'] == 'false'
     assert grouped_works['group_by'][1]['count'] == 0
 
@@ -123,8 +123,25 @@ def test_works_group_by_with_filter():
 def test_works_group_by_with_sort():
     group_by = "type"
     sort = {"key": "asc", "count": "desc"}
-    grouped_works = openalex.get_groups_of_works(group_by, None, sort)
+    grouped_works = openalex.get_groups_of_works(group_by=group_by, sort=sort)
     assert grouped_works['group_by'][0]['key'] == 'journal-article'
+
+
+@pytest.mark.vcr
+def test_groups_with_search():
+    group_by = "has_doi"
+    search = "test"
+    grouped_works = openalex.get_groups_of_works(group_by=group_by, search=search)
+    assert len(grouped_works['group_by']) == 2
+
+
+@pytest.mark.vcr
+def test_groups_with_search_and_sort():
+    group_by = "type"
+    search = "test"
+    sort = {"key": "asc"}
+    grouped_works = openalex.get_groups_of_works(group_by=group_by, search=search, sort=sort)
+    assert grouped_works['group_by'][0]['key'] == "book"
 
 
 # test for exceptions
@@ -144,10 +161,27 @@ def test_groups_sort_key_not_valid():
     group_by = "type"
     sort = {"hallo": "asc"}
     with pytest.raises(ValueError):
-        openalex.get_groups_of_works(group_by, None, sort)
+        openalex.get_groups_of_works(group_by=group_by, sort=sort)
+
 
 def test_groups_filter_is_not_filterable_attr():
     group_by = "type"
     filters = {"hallo": "test"}
     with pytest.raises(ValueError):
-        openalex.get_groups_of_works(group_by, filters)
+        openalex.get_groups_of_works(group_by=group_by, filters=filters)
+
+
+def test_groups_with_search_and_relevance_score():
+    group_by = "type"
+    search = "test"
+    sort = {"relevance_score": "asc"}
+    with pytest.raises(ValueError):
+        openalex.get_groups_of_works(group_by=group_by, search=search, sort=sort)
+
+
+def test_groups_with_filter_search_and_relevance_score():
+    group_by = "type"
+    filters = {"title.search": "test"}
+    sort = {"relevance_score": "asc"}
+    with pytest.raises(ValueError):
+        openalex.get_groups_of_works(group_by=group_by, filters=filters, sort=sort)

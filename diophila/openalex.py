@@ -130,98 +130,143 @@ class OpenAlex:
     # Get groups of entities: group_by
     def get_groups_of_authors(self, group_by: str,
                               filters: Optional[dict] = None,
+                              search: Optional[str] = None,
                               sort: Optional[dict] = None) -> dict:
         """ Get author groups.
 
         Args:
             group_by (str): property used to construct groups.
-            filters (Optional[dict]): dictionary with properties to filter the list of authors
+            filters (Optional[dict]): dictionary with properties to filter results
              before grouping them, optional.
+            search (Optional[str]): search string to find results that match
+             a given text search, optional.
+             If you search for a multiple-word phrase, OpenAlex will treat each word separately.
+             If you only want results matching the exact phrase, enclose it in double quotes.
             sort (Optional[dict]): dictionary with properties to sort the groups of authors
              after grouping them, optional.
 
         Returns:
             JSON object from HTTP response containing groups of authors.
         """
-        return Authors(self._api_caller).get_groups(group_by, filters, sort)
+        return Authors(self._api_caller).get_groups(group_by=group_by,
+                                                    filters=filters,
+                                                    search=search,
+                                                    sort=sort)
 
     def get_groups_of_concepts(self, group_by: str,
                                filters: Optional[dict] = None,
+                               search: Optional[str] = None,
                                sort: Optional[dict] = None) -> dict:
         """ Get concept groups.
 
         Args:
             group_by (str): property used to construct groups.
-            filters (Optional[dict]): dictionary with properties to filter the list of concepts
+            filters (Optional[dict]): dictionary with properties to filter results
              before grouping them, optional.
+            search (Optional[str]): search string to find results that match
+             a given text search, optional.
+             If you search for a multiple-word phrase, OpenAlex will treat each word separately.
+             If you only want results matching the exact phrase, enclose it in double quotes.
             sort (Optional[dict]): dictionary with properties to sort the groups of concepts
              after grouping them, optional.
 
         Returns:
             JSON object from HTTP response containing groups of concepts.
         """
-        return Concepts(self._api_caller).get_groups(group_by, filters, sort)
+        return Concepts(self._api_caller).get_groups(group_by=group_by,
+                                                     filters=filters,
+                                                     search=search,
+                                                     sort=sort)
 
     def get_groups_of_institutions(self, group_by: str,
                                    filters: Optional[dict] = None,
+                                   search: Optional[str] = None,
                                    sort: Optional[dict] = None) -> dict:
         """ Get institution groups.
 
         Args:
             group_by (str): property used to construct groups.
-            filters (Optional[dict]): dictionary with properties to filter the list of institutions
+            filters (Optional[dict]): dictionary with properties to filter results
              before grouping them, optional.
+            search (Optional[str]): search string to find results that match
+             a given text search, optional.
+             If you search for a multiple-word phrase, OpenAlex will treat each word separately.
+             If you only want results matching the exact phrase, enclose it in double quotes.
             sort (Optional[dict]): dictionary with properties to sort the groups of institutions
              after grouping them, optional.
 
         Returns:
             JSON object from HTTP response containing groups of institutions.
         """
-        return Institutions(self._api_caller).get_groups(group_by, filters, sort)
+        return Institutions(self._api_caller).get_groups(group_by=group_by,
+                                                         filters=filters,
+                                                         search=search,
+                                                         sort=sort)
 
     def get_groups_of_venues(self, group_by: str,
                              filters: Optional[dict] = None,
+                             search: Optional[str] = None,
                              sort: Optional[dict] = None) -> dict:
         """ Get venue groups.
 
         Args:
             group_by (str): property used to construct groups.
-            filters (Optional[dict]): dictionary with properties to filter the list of venues
+            filters (Optional[dict]): dictionary with properties to filter results
              before grouping them, optional.
+            search (Optional[str]): search string to find results that match
+             a given text search, optional.
+             If you search for a multiple-word phrase, OpenAlex will treat each word separately.
+             If you only want results matching the exact phrase, enclose it in double quotes.
             sort (Optional[dict]): dictionary with properties to sort the groups of venues
              after grouping them, optional.
 
         Returns:
             JSON object from HTTP response containing groups of venues.
         """
-        return Venues(self._api_caller).get_groups(group_by, filters, sort)
+        return Venues(self._api_caller).get_groups(group_by=group_by,
+                                                   filters=filters,
+                                                   search=search,
+                                                   sort=sort)
 
     def get_groups_of_works(self, group_by: str,
                             filters: Optional[dict] = None,
+                            search: Optional[str] = None,
                             sort: Optional[dict] = None) -> dict:
         """ Get work groups.
 
         Args:
             group_by (str): property used to construct groups.
-            filters (Optional[dict]): dictionary with properties to filter the list of works
+            filters (Optional[dict]): dictionary with properties to filter results
              before grouping them, optional.
+            search (Optional[str]): search string to find results that match
+             a given text search, optional.
+             If you search for a multiple-word phrase, OpenAlex will treat each word separately.
+             If you only want results matching the exact phrase, enclose it in double quotes.
             sort (Optional[dict]): dictionary with properties to sort the groups of works
              after grouping them, optional.
 
         Returns:
             JSON object from HTTP response containing groups of works.
         """
-        return Works(self._api_caller).get_groups(group_by, filters, sort)
+        return Works(self._api_caller).get_groups(group_by=group_by,
+                                                  filters=filters,
+                                                  search=search,
+                                                  sort=sort)
 
     # Get list of entities
     def get_list_of_authors(self, filters: Optional[dict] = None,
+                            search: Optional[str] = None,
                             sort: Optional[dict] = None,
                             per_page: Optional[int] = None,
                             pages: Optional[List[int]] = None) -> Iterable[dict]:
         """ Get list of authors.
 
         Args:
-            filters (Optional[dict]): dictionary with properties to filter entities, optional.
+            filters (Optional[dict]): dictionary with properties to filter results, optional.
+            search (Optional[str]): search string to find results that match
+             a given text search, optional.
+             If you search for a multiple-word phrase, OpenAlex will treat each word separately.
+             If you only want results matching the exact phrase, enclose it in double quotes.
             sort (Optional[dict]): dictionary with properties to sort entities, optional.
             per_page (Optional[int]): number of entities per page, defaults to 25.
                                       Needs to be between [1;200]
@@ -231,16 +276,25 @@ class OpenAlex:
         Returns:
             Generator, each item a dict from JSON representing a (partial) list of works.
         """
-        return Authors(self._api_caller).get_list(filters, sort, per_page, pages)
+        return Authors(self._api_caller).get_list(filters=filters,
+                                                  search=search,
+                                                  sort=sort,
+                                                  per_page=per_page,
+                                                  pages=pages)
 
     def get_list_of_concepts(self, filters: Optional[dict] = None,
+                             search: Optional[str] = None,
                              sort: Optional[dict] = None,
                              per_page: Optional[int] = None,
                              pages: Optional[List[int]] = None) -> Iterable[dict]:
         """ Get list of concepts.
 
         Args:
-            filters (Optional[dict]): dictionary with properties to filter entities, optional.
+            filters (Optional[dict]): dictionary with properties to filter results, optional.
+            search (Optional[str]): search string to find results that match
+             a given text search, optional.
+             If you search for a multiple-word phrase, OpenAlex will treat each word separately.
+             If you only want results matching the exact phrase, enclose it in double quotes.
             sort (Optional[dict]): dictionary with properties to sort entities, optional.
             per_page (Optional[int]): number of entities per page, defaults to 25.
                                       Needs to be between [1;200]
@@ -250,16 +304,25 @@ class OpenAlex:
         Returns:
             Generator, each item a dict from JSON representing a (partial) list of works.
         """
-        return Concepts(self._api_caller).get_list(filters, sort, per_page, pages)
+        return Concepts(self._api_caller).get_list(filters=filters,
+                                                   search=search,
+                                                   sort=sort,
+                                                   per_page=per_page,
+                                                   pages=pages)
 
     def get_list_of_institutions(self, filters: Optional[dict] = None,
+                                 search: Optional[str] = None,
                                  sort: Optional[dict] = None,
                                  per_page: Optional[int] = None,
                                  pages: Optional[List[int]] = None) -> Iterable[dict]:
         """ Get list of institutions.
 
         Args:
-            filters (Optional[dict]): dictionary with properties to filter entities, optional.
+            filters (Optional[dict]): dictionary with properties to filter results, optional.
+            search (Optional[str]): search string to find results that match
+             a given text search, optional.
+             If you search for a multiple-word phrase, OpenAlex will treat each word separately.
+             If you only want results matching the exact phrase, enclose it in double quotes.
             sort (Optional[dict]): dictionary with properties to sort entities, optional.
             per_page (Optional[int]): number of entities per page, defaults to 25.
                                       Needs to be between [1;200]
@@ -269,16 +332,25 @@ class OpenAlex:
         Returns:
             Generator, each item a dict from JSON representing a (partial) list of works.
         """
-        return Institutions(self._api_caller).get_list(filters, sort, per_page, pages)
+        return Institutions(self._api_caller).get_list(filters=filters,
+                                                       search=search,
+                                                       sort=sort,
+                                                       per_page=per_page,
+                                                       pages=pages)
 
     def get_list_of_venues(self, filters: Optional[dict] = None,
+                           search: Optional[str] = None,
                            sort: Optional[dict] = None,
                            per_page: Optional[int] = None,
                            pages: Optional[List[int]] = None) -> Iterable[dict]:
         """ Get list of venues.
 
         Args:
-            filters (Optional[dict]): dictionary with properties to filter entities, optional.
+            filters (Optional[dict]): dictionary with properties to filter results, optional.
+            search (Optional[str]): search string to find results that match
+             a given text search, optional.
+             If you search for a multiple-word phrase, OpenAlex will treat each word separately.
+             If you only want results matching the exact phrase, enclose it in double quotes.
             sort (Optional[dict]): dictionary with properties to sort entities, optional.
             per_page (Optional[int]): number of entities per page, defaults to 25.
                                       Needs to be between [1;200]
@@ -288,16 +360,25 @@ class OpenAlex:
         Returns:
             Generator, each item a dict from JSON representing a (partial) list of works.
         """
-        return Venues(self._api_caller).get_list(filters, sort, per_page, pages)
+        return Venues(self._api_caller).get_list(filters=filters,
+                                                 search=search,
+                                                 sort=sort,
+                                                 per_page=per_page,
+                                                 pages=pages)
 
     def get_list_of_works(self, filters: Optional[dict] = None,
+                          search: Optional[str] = None,
                           sort: Optional[dict] = None,
                           per_page: Optional[int] = None,
                           pages: Optional[List[int]] = None) -> Iterable[dict]:
         """ Get list of works.
 
         Args:
-            filters (Optional[dict]): dictionary with properties to filter entities, optional.
+            filters (Optional[dict]): dictionary with properties to filter results, optional.
+            search (Optional[str]): search string to find results that match
+             a given text search, optional.
+             If you search for a multiple-word phrase, OpenAlex will treat each word separately.
+             If you only want results matching the exact phrase, enclose it in double quotes.
             sort (Optional[dict]): dictionary with properties to sort entities, optional.
             per_page (Optional[int]): number of entities per page, defaults to 25.
                                       Needs to be between [1;200]
@@ -307,7 +388,11 @@ class OpenAlex:
         Returns:
             Generator, each item a dict from JSON representing a (partial) list of works.
         """
-        return Works(self._api_caller).get_list(filters, sort, per_page, pages)
+        return Works(self._api_caller).get_list(filters=filters,
+                                                search=search,
+                                                sort=sort,
+                                                per_page=per_page,
+                                                pages=pages)
 
     # Convenience method to retrieve works referenced by another entity
     def get_works_by_api_url(self, works_api_url:str,

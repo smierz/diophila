@@ -1,0 +1,50 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.27.1
+    method: GET
+    uri: https://api.openalex.org/works?group_by=has_doi&search=test
+  response:
+    body:
+      string: '{"meta":{"count":2,"db_response_time_ms":389,"page":1,"per_page":200},"results":[],"group_by":[{"key":"true","key_display_name":"true","count":7586288},{"key":"false","key_display_name":"false","count":3408061}]}
+
+        '
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - Origin, X-Requested-With, Content-Type, Accept, Authorization, Cache-Control
+      Access-Control-Allow-Methods:
+      - POST, GET, OPTIONS, PUT, DELETE, PATCH
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Expose-Headers:
+      - Authorization, Cache-Control
+      Cache-Control:
+      - max-age=0, no-cache
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '213'
+      Content-Type:
+      - application/json
+      Date:
+      - Sun, 31 Jul 2022 10:16:40 GMT
+      Server:
+      - gunicorn
+      Via:
+      - 1.1 vegur
+      X-Api-Pool:
+      - common
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -66,6 +66,7 @@ def test_list_of_entities_per_page_too_high():
     assert first_page['meta']['per_page'] == 200
 
 
+@pytest.mark.vcr
 def test_list_of_entities_basic_paging_no_valid_pages():
     pages = [0, 401]
     author_pages = openalex.get_list_of_authors(pages=pages)
@@ -79,6 +80,34 @@ def test_list_of_works_by_api_url():
     first_page = next(work_pages)
     assert first_page['meta']['count'] > 0
     assert len(first_page['results']) > 0
+
+
+@pytest.mark.vcr
+def test_list_of_entities_with_search():
+    search = '"Physics"'
+    concept_pages = openalex.get_list_of_concepts(search=search)
+    first_page = next(concept_pages)
+    assert first_page['meta']['count'] == 80
+
+
+@pytest.mark.vcr
+def test_list_of_entities_with_search_and_sort():
+    search = '"Physics"'
+    sort = {"display_name": "desc"}
+    concept_pages = openalex.get_list_of_concepts(search=search, sort=sort)
+    first_page = next(concept_pages)
+    assert first_page['meta']['count'] == 80
+    assert first_page['results'][0]['level'] == 2
+
+
+@pytest.mark.vcr
+def test_list_of_entities_with_search_and_relevance_score():
+    search = '"Physics"'
+    sort = {"relevance_score": "desc"}
+    concept_pages = openalex.get_list_of_concepts(search=search, sort=sort)
+    first_page = next(concept_pages)
+    assert first_page['meta']['count'] == 80
+    assert first_page['results'][0]['level'] == 0
 
 
 # test for exceptions
@@ -96,5 +125,11 @@ def test_list_sort_key_not_valid():
 
 def test_list_sort_value_not_valid():
     sort = {"display_name": "xyz"}
+    with pytest.raises(ValueError):
+        openalex.get_list_of_works(sort=sort)
+
+
+def test_list_with_no_search_and_relevance_score():
+    sort = {"relevance_score": "asc"}
     with pytest.raises(ValueError):
         openalex.get_list_of_works(sort=sort)
